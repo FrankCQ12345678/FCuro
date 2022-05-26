@@ -1,6 +1,7 @@
 package edu.elp.FranCuro.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name ="estudiante")
@@ -11,9 +12,34 @@ public class Estudiante {
 
     @Column(name = "serie", length = 8)
     private String serie;
-    @ManyToOne(optional = false, cascade =  CascadeType.ALL, fetch = FetchType.EAGER)
+
+    @Column(name = "estado_egreso", length = 5)
+    private String estadoEgreso;
+
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Direccion direccion;
+
     public Estudiante() {
+    }
+
+    public Estudiante(String codigo, String serie, String estadoEgreso, Direccion direccion) {
+        this.codigo = codigo;
+        this.serie = serie;
+        this.estadoEgreso = estadoEgreso;
+        this.direccion = direccion;
+    }
+
+    public Estudiante(Long idpersona, String codigo, String serie, String estadoEgreso, Direccion direccion) {
+        this.codigo = codigo;
+        this.serie = serie;
+        this.estadoEgreso = estadoEgreso;
+        this.direccion = direccion;
+    }
+    public Estudiante(String nombre, String apellido, String edad, String sexo, String dni, String telefono, Date fechaNacimiento, String codigo, String serie, String estadoEgreso, Direccion direccion) {
+        this.codigo = codigo;
+        this.serie = serie;
+        this.estadoEgreso = estadoEgreso;
+        this.direccion = direccion;
     }
 
     public String getCodigo() {
@@ -31,4 +57,13 @@ public class Estudiante {
     public void setSerie(String serie) {
         this.serie = serie;
     }
+
+    public String getEstadoEgreso() {
+        return estadoEgreso;
+    }
+
+    public void setEstadoEgreso(String estadoEgreso) {
+        this.estadoEgreso = estadoEgreso;
+    }
+
 }

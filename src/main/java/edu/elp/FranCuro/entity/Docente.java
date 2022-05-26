@@ -6,19 +6,21 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "profesor")
-@PrimaryKeyJoinColumn(referencedColumnName = "idpersona")
-public class Profesor extends Persona{
-    @Column(name = "cod_profesor", length = 12)
-    private String codProfesor;
+@Table(name = "docente")
+@PrimaryKeyJoinColumn(referencedColumnName="idpersona")
+public class Docente {
+    @Column(name = "cod_docente", length = 12)
+    private String codDocente;
 
-    public Profesor() {
+    public Docente() {
+
     }
+
     public String getCodDocente() {
-        return codProfesor;
+        return codDocente;
     }
 
     public void setCodDocente(String codDocente) {
-        this.codProfesor = codDocente;
+        this.codDocente = codDocente;
     }
 }
